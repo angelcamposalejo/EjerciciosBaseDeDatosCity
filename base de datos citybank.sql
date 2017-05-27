@@ -4,34 +4,74 @@ CREATE TABLE friend (
     friend_id INT(10) AUTO_INCREMENT NOT NULL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     address VARCHAR(60) NOT NULL,
-    brith_date DATE NOT NULL,
+    brith_date varchar(20),
     ssn VARCHAR(20) NOT NULL
 );
 CREATE TABLE client (
-    client_id INT(10) NOT NULL PRIMARY KEY,
+    client_id INT(10) AUTO_INCREMENT NOT NULL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     addres VARCHAR(60) NOT NULL,
     type VARCHAR(10) NOT NULL
 );
-CREATE TABLE brach (
-    branch_id INT(10) NOT NULL PRIMARY KEY,
+CREATE TABLE branch (
+    branch_id INT(10) AUTO_INCREMENT NOT NULL PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     address VARCHAR(60) NOT NULL,
     manager_id INT(10) NOT NULL
 );
 CREATE TABLE account (
-    account_id INT(10) NOT NULL PRIMARY KEY,
+    account_id INT(10) AUTO_INCREMENT NOT NULL PRIMARY KEY,
     balance DOUBLE NOT NULL,
     type VARCHAR(10) NOT NULL,
     branch_id INT(10) NOT NULL,
     FOREIGN KEY (branch_id)
-        REFERENCES brach (branch_id)
+        REFERENCES branch (branch_id)
 );
+DROP TABLE client_account;
 CREATE TABLE client_account (
-    client_id INT(10) NOT NULL PRIMARY KEY,
+    client_id INT(10)  NOT NULL PRIMARY KEY,
     account_id INT(10) NOT NULL,
     FOREIGN KEY (client_id)
         REFERENCES client (client_id),
     FOREIGN KEY (account_id)
         REFERENCES account (account_id)
 );
+INSERT INTO client(name,addres,type)values
+('Sigal,Tobias','56 Clayton Road','B'),
+('Vega, Adam','275 Evergreen Road','F'),
+('Nayer, Julia','56 Diablo Blvd','B'),
+('Colmena, Karen','4323 Oak Road','F'),
+('Volman, Shanta','4323 Sky Road','F'),
+('Weiss, Matthew','Av. Trabajo 5','B'),
+('Mourgos, Kevin','Hidalgo 74','B'),
+('Brenden, Carlos','12 Sky Blvd','B');
+INSERT INTO friend(name,address,ssn)VALUES
+('Roberts, Joseph','22 Diablo Blvd','234-45-5688');
+INSERT INTO friend(name,address,brith_date,ssn)VALUES
+('Ledesma, Roberto','453 Main St','1960-03-05','255-45-5688');
+INSERT INTO friend(name,address,brith_date,ssn)VALUES
+('Mark, Nancy','232 Concord Road',null,'234-77-5688'),
+('Kenny, Tom','123 Oak Road','1972-01-12','134-65-9288');
+INSERT INTO branch(name,address,manager_id)VALUES
+('Centro','45 Main St',9823),
+('Bellavista','23 Treat Blvd','1768');
+INSERT INTO account(balance,type,branch_id)VALUES
+('234.56','S',1),
+('12756.56','C',1),
+('-1756.56','S',1),
+('-456.78','C',1),
+('2456.78','C',1),
+('1223.67','S',2),
+('323.97','S',2),
+('89.65','S',2),
+('2789.65','S',2);
+INSERT INTO client_account(client_id,account_id)VALUES
+(1,1),
+(2,2),
+(3,3),
+(4,4),
+(5,5),
+(6,6),
+(7,7),
+(8,8);
+
