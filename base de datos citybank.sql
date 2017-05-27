@@ -203,3 +203,42 @@ WHERE
     ca.account_id = a.account_id
         AND c.client_id = ca.client_id
         AND balance > 100; 
+
+CREATE VIEW vw_buss AS
+    SELECT 
+        name, REPLACE(type, 'B', 'Business') AS type
+    FROM
+        client
+    WHERE
+        type = 'B';
+SELECT 
+    name, type
+FROM
+    vw_buss;
+SELECT 
+    account_id, type
+FROM
+    account
+WHERE
+    type <> 'C';
+SELECT 
+    b.account_id, b.type, a.name
+FROM
+    client a,
+    account b,
+    client_account c
+WHERE
+    b.account_id = c.account_id
+        AND c.client_id = a.client_id
+        AND b.type <> 'C';
+CREATE VIEW vw_account AS
+    SELECT 
+        branch_id
+    FROM
+        branch
+    WHERE
+        name <> 'Bellavista';
+create view vw_type as
+select account_id
+from account
+where type<>'S';
