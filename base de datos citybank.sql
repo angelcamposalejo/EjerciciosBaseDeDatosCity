@@ -74,4 +74,93 @@ INSERT INTO client_account(client_id,account_id)VALUES
 (6,6),
 (7,7),
 (8,8);
-
+SELECT 
+    *
+FROM
+    client;
+SELECT 
+    *
+FROM
+    client
+WHERE
+    name = 'Vega, Adam';
+SELECT 
+    *
+FROM
+    client
+WHERE
+    name = 'Cruise, Tom';
+SELECT 
+    *
+FROM
+    client
+WHERE
+    client_id = 2;
+SELECT 
+    *
+FROM
+    client
+WHERE
+    type = 'B' AND name = 'Nayer, Julia';
+SELECT 
+    *
+FROM
+    client
+WHERE
+    client_id = 4 OR name = 'Colmena, Karen';
+SELECT 
+    *
+FROM
+    client
+WHERE
+    client_id > 3 OR name = 'Vega, Adam';
+SELECT 
+    name
+FROM
+    client;
+SELECT 
+    name, address
+FROM
+    branch;
+SELECT 
+    friend_id, name, brith_date
+FROM
+    friend
+WHERE
+    brith_date IS NULL;
+SELECT 
+    friend_id, name, brith_date
+FROM
+    friend
+WHERE
+    brith_date IS NOT NULL;
+SELECT 
+    client_id
+FROM
+    client_account;
+SELECT DISTINCT
+    client_id
+FROM
+    client_account;
+SELECT 
+    account_id, balance
+FROM
+    account
+WHERE
+    balance > 100;
+SELECT 
+    account_id, balance, type
+FROM
+    account
+WHERE
+    balance > 100;
+SELECT 
+    name, addres, type
+FROM
+    client
+ORDER BY name ASC;
+SELECT 
+    name, addres, type
+FROM
+    client
+ORDER BY name DESC;
