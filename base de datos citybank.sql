@@ -164,3 +164,42 @@ SELECT
 FROM
     client
 ORDER BY name DESC;
+
+SELECT 
+    name, account_id
+FROM
+    client,
+    client_account;
+SELECT 
+    name, account_id
+FROM
+    client,
+    client_account
+WHERE
+    client_account.client_id = client.client_id;
+SELECT 
+    c.name, ca.client_id, ca.account_id
+FROM
+    client c,
+    client_account ca
+WHERE
+    ca.client_id = c.client_id;
+SELECT 
+    c.client_id, a.account_id, balance, name
+FROM
+    client c,
+    client_account ca,
+    account a
+WHERE
+    ca.account_id = a.account_id
+        AND c.client_id = ca.client_id;
+SELECT 
+    name, balance
+FROM
+    client c,
+    account a,
+    client_account ca
+WHERE
+    ca.account_id = a.account_id
+        AND c.client_id = ca.client_id
+        AND balance > 100; 
