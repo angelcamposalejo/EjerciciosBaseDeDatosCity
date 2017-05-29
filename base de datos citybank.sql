@@ -243,5 +243,13 @@ select account_id
 from account
 where type<>'S';
 set sql_safe_updates=0;
-update account set balance='0.0000' where balance<'0';
+UPDATE account 
+SET 
+    balance = '0.0000'
+WHERE
+    balance < '0';
 
+SELECT 
+    account_id, balance, ABS(balance) AS dinero
+FROM
+    account;
