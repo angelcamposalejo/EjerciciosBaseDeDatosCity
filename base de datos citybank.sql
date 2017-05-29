@@ -242,3 +242,6 @@ create view vw_type as
 select account_id
 from account
 where type<>'S';
+set sql_safe_updates=0;
+update account set balance='0.0000' where balance<'0';
+
