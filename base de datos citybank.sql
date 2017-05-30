@@ -253,3 +253,13 @@ SELECT
     account_id, balance, ABS(balance) AS dinero
 FROM
     account;
+CREATE VIEW vw_cost AS
+    SELECT 
+        item_id, cost
+    FROM
+        item
+    WHERE
+        item_id = '2000';
+create user andrew identified by 'easy78';
+grant all privileges on *.* to 'andrew'@'%';
+drop user andrew;
