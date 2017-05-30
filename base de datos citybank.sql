@@ -263,3 +263,6 @@ CREATE VIEW vw_cost AS
 create user andrew identified by 'easy78';
 grant all privileges on *.* to 'andrew'@'%';
 drop user andrew;
+grant select on friend to andrew;
+grant select,update on friend to andrew;
+grant select on friend to PUBLIC;
