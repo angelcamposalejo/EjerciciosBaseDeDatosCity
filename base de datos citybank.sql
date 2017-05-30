@@ -266,3 +266,9 @@ drop user andrew;
 grant select on friend to andrew;
 grant select,update on friend to andrew;
 grant select on friend to PUBLIC;
+
+start transaction;
+insert into friend(name,address,brith_date,ssn)
+values('Conreras, Marco','Hidalgo 50','1990-03-29','123-45-7788');
+rollback;
+
