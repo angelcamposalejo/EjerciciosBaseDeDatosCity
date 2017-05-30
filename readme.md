@@ -13,3 +13,12 @@ Practica de control de permiso al usuario utilizando los siguientes comandos:
 
 1. <code>GRANT ON</code> asigna privilegios sobre una tabla.
 2. <code>REVOKE ON</code> revoca los privilegios asignados al usuario.
+
+<h3>Version 3</h3>
+<h5>30/05/2017</h5>
+Practica de transacciones utilizando los siguientes comandos:
+
+1. <code>START TRANSACTION</code> inicia una transacción.
+2. <code>COMMIT</code> hace permanentes los cambios hechos a una tabla.
+3. <code>ROLLBACK</code> cancela todos los cambios hechos a una tabla desde la última ves que se ejecuto <code>COMMIT</code>.
+4. <code>SAVEPOINT</code> permite guardar un punto en una transacción al cual se puede regresar siempre y cuando no se haya ejecutado un <code>COMMIT</code>.
